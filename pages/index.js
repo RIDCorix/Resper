@@ -8,7 +8,7 @@ export default function Home() {
   const navigateToPage = (page) => {
     setActivePage(page);
   };
-
+  alert(123);
   return (
     <>
       {activePage === 'index' && <Index navigateToPage={navigateToPage} />}

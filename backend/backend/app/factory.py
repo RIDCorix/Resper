@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from fastapi.routing import APIRoute
 from fastapi.staticfiles import StaticFiles
-from fastapi_users import FastAPIUsers
 from starlette.middleware.cors import CORSMiddleware
 from starlette.requests import Request
 from starlette.responses import FileResponse
@@ -43,11 +42,10 @@ def setup_cors_middleware(app):
     if settings.BACKEND_CORS_ORIGINS:
         app.add_middleware(
             CORSMiddleware,
-            allow_origins=[str(origin) for origin in settings.BACKEND_CORS_ORIGINS],
+            allow_origins='*',
             allow_credentials=True,
             allow_methods=["*"],
-            expose_headers=["Content-Range", "Range"],
-            allow_headers=["Authorization", "Range", "Content-Range"],
+            allow_headers=["*"],
         )
 
 

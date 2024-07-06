@@ -20,7 +20,7 @@
   "content_scripts": [
     {
       "matches": ["https://*/*", "http://*/*"],
-      "js": ["inject.js"]
+      "js": ["jquery.js", "inject.js"]
     }
   ],
   "host_permissions": ["<all_urls>"],
