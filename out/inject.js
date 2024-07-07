@@ -83,7 +83,7 @@ function setupResper() {
             crossDomain: true,
             success: function (data) {
                 console.log(data);
-                globalInfoPanel.querySelector('#info-container').innerText = data;
+                globalInfoPanel.querySelector('.info-container').innerText = data;
                 containsSensitiveWord = data.split("1.")[1].split("2.")[0].includes("是")
 
                 if (containsSensitiveWord) {
@@ -105,8 +105,8 @@ function setupResper() {
                     // input.parentNode.insertBefore(buttonMenu, input.nextSibling);
                     // const menuRect = buttonMenu.getBoundingClientRect();
                     // buttonMenu.style.top = `${rect.height / 2 - menuRect.height / 2}px`;
-                    globalInfoPanel.querySelector('#info-container').innerText = longDescription + '\n\n建議修改：' + advice;
-                    globalInfoPanel.querySelector('.info-panel-title').innerText = shortDescription;
+                    globalInfoPanel.querySelector('.info-container').innerText = longDescription + '\n\n建議修改：' + advice;
+                    globalInfoPanel.querySelector('#info-panel-title').innerText = shortDescription;
                 }
             },
             error: function (e) { console.log('Failed!', e); }
@@ -118,11 +118,11 @@ function setupResper() {
     function showGlobalPanel() {
         // set attribute status shown
         globalInfoPanel.setAttribute('data-status', 'shown');
-        globalInfoPanel.querySelector('#info-container').style.height = '0px';
+        globalInfoPanel.querySelector('.info-container').style.height = '0px';
     }
     function expandGlobalPanel() {
         globalInfoPanel.setAttribute('data-status', 'expanded');
-        globalInfoPanel.querySelector('#info-container').style.height = '100px';
+        globalInfoPanel.querySelector('.info-container').style.height = '100px';
     }
     function toggleExpandGlobalPanel() {
         if (globalInfoPanel.getAttribute('data-status') === 'hidden' || globalInfoPanel.getAttribute('data-status') === 'shown') {
@@ -233,21 +233,21 @@ function setupResper() {
             background: rgb(100, 100, 100);
             border-radius: 10px;
         }
-        .info-panel-header {
+        #info-panel-header {
             transition: all 0.3s ease;
             margin: 10px;
             display: flex;
             align-items: center;
             cursor: pointer;
         }
-        #info-container {
+        .info-container {
             padding: 10px;
             overflow-y: auto;
             z-index: 900;
             height: 120px;
             background-color: rgb(80, 70, 138);
         }
-        .info-panel .info-panel-title {
+        #info-panel #info-panel-title {
             margin-left: 12px;
             transition: all 0.3s ease;
             overflow: clip;
@@ -255,10 +255,10 @@ function setupResper() {
             height: 36px;
             align-content: space-evenly;
         }
-        .info-panel[data-status="expanded"] .info-panel-header {
+        #info-panel[data-status="expanded"] #info-panel-header {
             margin: 10px 0px;
         }
-        .info-panel[data-status="shown"] .info-panel-title {
+        #info-panel[data-status="shown"] #info-panel-title {
             height: 0px;
             width: 0px;
         }
@@ -277,25 +277,25 @@ function setupResper() {
             border-radius: 10px;
             transition: all 0.3s ease !important;
         }
-        .info-panel[data-status="expanded"] {
+        #info-panel[data-status="expanded"] {
             padding: 0px 20px;
             height: 200px;
             width: '350px';
             bottom: 0px;
         }
-        .info-panel[data-status="hidden"] {
+        #info-panel[data-status="hidden"] {
             bottom: -400px;
             width: 60px;
             height: 60px;
             padding: 0px;
         }
-        .info-panel[data-status="shown"] {
+        #info-panel[data-status="shown"] {
             bottom: 0px;
             width: 60px;
             height: 60px;
             padding: 0px;
         }
-        .info-panel[data-status="hidden"] #info-container,.info-panel[data-status="shown"] #info-container{
+        #info-panel[data-status="hidden"] .info-container,#info-panel[data-status="shown"] .info-container{
             width: 0px;
             height: 0px;
             padding: 0px;
@@ -316,7 +316,7 @@ function setupResper() {
         <div class="info-container prevent-clickaway"></div>
     `;
     document.body.appendChild(globalInfoPanel);
-    globalInfoPanel.querySelector('.info-panel-header').addEventListener('click', toggleExpandGlobalPanel);
+    globalInfoPanel.querySelector('#info-panel-header').addEventListener('click', toggleExpandGlobalPanel);
 
     {/* <div class="resper-button" style="z-index: 999">
     <img src="https://cdn-icons-png.flaticon.com/512/5996/5996831.png" width='16px'>
