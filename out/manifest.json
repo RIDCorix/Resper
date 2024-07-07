@@ -1,6 +1,5 @@
 {
   "manifest_version": 3,
-  "content_security_policy": "script-src 'self' https://media.discordapp.net https://static.vecteezy.com; object-src 'self'",
   "name": "NEXT-CHROME-STARTER",
   "short_name": "N-C-S",
   "version": "0.0.1",
@@ -11,7 +10,11 @@
     "48": "/icons/icon48.png",
     "192": "/icons/icon192.png"
   },
-  "permissions": [],
+    "permissions": [
+      "webRequest",
+      "webRequestBlocking",
+      "<all_urls>"
+    ],
   "web_accessible_resources": [
     {
       "resources": ["index.html"],
