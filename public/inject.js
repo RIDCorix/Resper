@@ -294,8 +294,10 @@ function setupResper() {
             height: 60px;
             padding: 0px;
         }
-        .info-panel[data-status="shown"] .info-container{
-            padding: 10px;
+        .info-panel[data-status="hidden"] .info-container,.info-panel[data-status="shown"] .info-container{
+            width: 0px;
+            height: 0px;
+            padding: 0px;
         }
     `;
     style.type = 'text/css';
@@ -309,7 +311,7 @@ function setupResper() {
             <img class="prevent-clickaway" src="https://media.discordapp.net/attachments/1242135539105267753/1259041221964468284/image.png?ex=668a3d03&is=6688eb83&hm=0b7773a06b059613873e58863d38720acf03f6d6a0619e73712edcd2b8464a37&=&format=webp&quality=lossless&width=451&height=432" width="40px">
             <div class="info-panel-title prevent-clickaway">Resper</div>
         </div>
-        <div class="info-container prevent-clickaway">Ojosama</div>
+        <div class="info-container prevent-clickaway"></div>
     `;
     document.body.appendChild(globalInfoPanel);
     globalInfoPanel.querySelector('.info-panel-header').addEventListener('click', toggleExpandGlobalPanel);
