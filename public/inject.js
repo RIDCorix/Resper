@@ -106,7 +106,7 @@ function setupResper() {
                     // const menuRect = buttonMenu.getBoundingClientRect();
                     // buttonMenu.style.top = `${rect.height / 2 - menuRect.height / 2}px`;
                     globalInfoPanel.querySelector('.info-container').innerText = longDescription + '\n\n建議修改：' + advice;
-                    globalInfoPanel.querySelector('#info-panel-title').innerText = shortDescription;
+                    globalInfoPanel.querySelector('.info-panel-title').innerText = shortDescription;
                 }
             },
             error: function (e) { console.log('Failed!', e); }
@@ -247,7 +247,7 @@ function setupResper() {
             height: 120px;
             background-color: rgb(80, 70, 138);
         }
-        #info-panel #info-panel-title {
+        #info-panel .info-panel-title {
             margin-left: 12px;
             transition: all 0.3s ease;
             overflow: clip;
@@ -258,7 +258,7 @@ function setupResper() {
         #info-panel[data-status="expanded"] #info-panel-header {
             margin: 10px 0px;
         }
-        #info-panel[data-status="shown"] #info-panel-title {
+        #info-panel[data-status="shown"] .info-panel-title {
             height: 0px;
             width: 0px;
         }
