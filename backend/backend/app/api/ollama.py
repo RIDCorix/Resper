@@ -1,13 +1,8 @@
-from typing import Any, List, Optional
+from typing import Any
 
-from fastapi import APIRouter, HTTPException
-from sqlalchemy import func, select
-from starlette.responses import Response
+from fastapi import APIRouter
 
-from app.schemas.item import Item as ItemSchema
-from app.schemas.item import ItemCreate, ItemUpdate
 
-import asyncio
 from ollama import AsyncClient
 
 import re
@@ -54,8 +49,8 @@ async def get_short_long(
     #     }
     system = '''臺灣。請使用繁體中文回答。我將會對此句子提出五個問題，請回答這五個問題，並只回傳答案：
 1.此句子是否帶有歧視意味? 只回答是或否。
-2.此句子造成歧視意味的詞彙。
-3.在20字內以校園歧視的觀點指出此句子的歧視問題。
+2.此句子造成歧視意味的詞彙，只回答詞段，不要用引號。
+3.簡短描述此句子的校園歧視問題，務必在 20 字以內。
 4.以校園歧視的觀點提供此句子有關的相關知識，並至少回答60字。
 5.將此句改成不帶歧視意味的句子。'''
     user = '「'+ input_text +'」'
