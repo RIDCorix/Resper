@@ -58,7 +58,7 @@ function setupResper() {
                 , 500);
         });
     }
-    document.addEventListener('keypress', (e) => {
+    document.addEventListener('keydown', (e) => {
         const input = e.target;
         console.log('setup for ', input)
         setupResperForInput(input);
@@ -83,7 +83,7 @@ function setupResper() {
             crossDomain: true,
             success: function (data) {
                 console.log(data);
-                globalInfoPanel.querySelector('.info-container').innerText = data;
+                globalInfoPanel.querySelector('#info-container').innerText = data;
                 containsSensitiveWord = data.split("1.")[1].split("2.")[0].includes("是")
 
                 if (containsSensitiveWord) {
@@ -105,7 +105,7 @@ function setupResper() {
                     // input.parentNode.insertBefore(buttonMenu, input.nextSibling);
                     // const menuRect = buttonMenu.getBoundingClientRect();
                     // buttonMenu.style.top = `${rect.height / 2 - menuRect.height / 2}px`;
-                    globalInfoPanel.querySelector('.info-container').innerText = longDescription + '\n\n建議修改：' + advice;
+                    globalInfoPanel.querySelector('#info-container').innerText = longDescription + '\n\n建議修改：' + advice;
                     globalInfoPanel.querySelector('.info-panel-title').innerText = shortDescription;
                 }
             },
@@ -118,11 +118,11 @@ function setupResper() {
     function showGlobalPanel() {
         // set attribute status shown
         globalInfoPanel.setAttribute('data-status', 'shown');
-        globalInfoPanel.querySelector('.info-container').style.height = '0px';
+        globalInfoPanel.querySelector('#info-container').style.height = '0px';
     }
     function expandGlobalPanel() {
         globalInfoPanel.setAttribute('data-status', 'expanded');
-        globalInfoPanel.querySelector('.info-container').style.height = '100px';
+        globalInfoPanel.querySelector('#info-container').style.height = '100px';
     }
     function toggleExpandGlobalPanel() {
         if (globalInfoPanel.getAttribute('data-status') === 'hidden' || globalInfoPanel.getAttribute('data-status') === 'shown') {
@@ -240,7 +240,7 @@ function setupResper() {
             align-items: center;
             cursor: pointer;
         }
-        .info-container {
+        #info-container {
             padding: 10px;
             overflow-y: auto;
             z-index: 900;
@@ -262,7 +262,7 @@ function setupResper() {
             height: 0px;
             width: 0px;
         }
-        .info-panel {
+        #info-panel {
             position: sticky;
             z-index: 900;
             background-color: rgb(96, 86, 161);
@@ -275,7 +275,7 @@ function setupResper() {
             margin: 10px;
             height: 200px;
             border-radius: 10px;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease !important;
         }
         .info-panel[data-status="expanded"] {
             padding: 0px 20px;
@@ -295,7 +295,7 @@ function setupResper() {
             height: 60px;
             padding: 0px;
         }
-        .info-panel[data-status="hidden"] .info-container,.info-panel[data-status="shown"] .info-container{
+        .info-panel[data-status="hidden"] #info-container,.info-panel[data-status="shown"] #info-container{
             width: 0px;
             height: 0px;
             padding: 0px;
@@ -307,6 +307,7 @@ function setupResper() {
     // create global info panel
     const globalInfoPanel = document.createElement('div');
     globalInfoPanel.className = 'info-panel';
+    globalInfoPanel.id = 'info-panel'
     globalInfoPanel.innerHTML = `
         <div class="info-panel-header prevent-clickaway">
             <img class="prevent-clickaway" src="https://media.discordapp.net/attachments/1242135539105267753/1259041221964468284/image.png?ex=668a3d03&is=6688eb83&hm=0b7773a06b059613873e58863d38720acf03f6d6a0619e73712edcd2b8464a37&=&format=webp&quality=lossless&width=451&height=432" width="40px">
