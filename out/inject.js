@@ -233,7 +233,7 @@ function setupResper() {
             background: rgb(100, 100, 100);
             border-radius: 10px;
         }
-        #info-panel-header {
+        .info-panel-header {
             transition: all 0.3s ease;
             margin: 10px;
             display: flex;
@@ -255,7 +255,7 @@ function setupResper() {
             height: 36px;
             align-content: space-evenly;
         }
-        #info-panel[data-status="expanded"] #info-panel-header {
+        #info-panel[data-status="expanded"] .info-panel-header {
             margin: 10px 0px;
         }
         #info-panel[data-status="shown"] .info-panel-title {
@@ -316,7 +316,7 @@ function setupResper() {
         <div class="info-container prevent-clickaway"></div>
     `;
     document.body.appendChild(globalInfoPanel);
-    globalInfoPanel.querySelector('#info-panel-header').addEventListener('click', toggleExpandGlobalPanel);
+    globalInfoPanel.querySelector('.info-panel-header').addEventListener('click', toggleExpandGlobalPanel);
 
     {/* <div class="resper-button" style="z-index: 999">
     <img src="https://cdn-icons-png.flaticon.com/512/5996/5996831.png" width='16px'>
