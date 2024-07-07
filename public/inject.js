@@ -262,7 +262,7 @@ function setupResper() {
             height: 0px;
             width: 0px;
         }
-        .info-panel {
+        #info-panel {
             position: sticky;
             z-index: 900;
             background-color: rgb(96, 86, 161);
@@ -275,7 +275,7 @@ function setupResper() {
             margin: 10px;
             height: 200px;
             border-radius: 10px;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease !important;
         }
         .info-panel[data-status="expanded"] {
             padding: 0px 20px;
@@ -307,6 +307,7 @@ function setupResper() {
     // create global info panel
     const globalInfoPanel = document.createElement('div');
     globalInfoPanel.className = 'info-panel';
+    globalInfoPanel.id = 'info-panel'
     globalInfoPanel.innerHTML = `
         <div class="info-panel-header prevent-clickaway">
             <img class="prevent-clickaway" src="https://media.discordapp.net/attachments/1242135539105267753/1259041221964468284/image.png?ex=668a3d03&is=6688eb83&hm=0b7773a06b059613873e58863d38720acf03f6d6a0619e73712edcd2b8464a37&=&format=webp&quality=lossless&width=451&height=432" width="40px">
