@@ -95,6 +95,7 @@ function setupResper() {
                     console.log('replaced', keyword)
                     shortDescription = data.split("3.")[1].split("4.")[0]
                     longDescription = data.split("4.")[1].split("5.")[0]
+                    advice = data.split("5.")[1]
 
                     underlineText(input, keyword);
                     showGlobalPanel()
@@ -104,7 +105,7 @@ function setupResper() {
                     // input.parentNode.insertBefore(buttonMenu, input.nextSibling);
                     // const menuRect = buttonMenu.getBoundingClientRect();
                     // buttonMenu.style.top = `${rect.height / 2 - menuRect.height / 2}px`;
-                    globalInfoPanel.querySelector('.info-container').innerText = longDescription;
+                    globalInfoPanel.querySelector('.info-container').innerText = longDescription + '\n\n建議修改：' + advice;
                     globalInfoPanel.querySelector('.info-panel-title').innerText = shortDescription;
                 }
             },
