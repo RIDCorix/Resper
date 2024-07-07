@@ -1,5 +1,4 @@
 import styles from '../../styles/Pages.module.css';
-import {Ollama} from 'ollama/browser';
 
 const ollama = new Ollama({host: "https://ollama-api.pudi-lab.com"});
 
